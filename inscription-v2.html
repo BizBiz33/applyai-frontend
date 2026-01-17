@@ -13,7 +13,7 @@
     <div class="tf-progress">
         <div class="tf-progress-bar" id="progressBar"></div>
         <div class="tf-progress-text">
-            <span id="currentQuestion">1</span> / <span id="totalQuestions">15</span>
+            <span id="currentQuestion">1</span> / <span id="totalQuestions">23</span>
         </div>
     </div>
 
@@ -27,256 +27,68 @@
     <div class="tf-container">
         <form id="typeform" class="tf-form">
 
-            <!-- Question 1: Email Provider -->
+            <!-- ==================== PARTIE 1: RECHERCHE ==================== -->
+
+            <!-- Question 1: Gender -->
             <div class="tf-question active" data-question="1">
                 <div class="tf-question-content">
                     <span class="tf-question-number">1 →</span>
-                    <h1 class="tf-title">Quel service email utilisez-vous ?</h1>
-                    <p class="tf-subtitle">Nous l'utiliserons pour envoyer vos candidatures</p>
-
-                    <div class="tf-choices tf-choices-icons">
-                        <label class="tf-choice" data-key="A">
-                            <input type="radio" name="emailProvider" value="gmail" required>
-                            <span class="tf-choice-key">A</span>
-                            <span class="tf-choice-icon">📧</span>
-                            <span class="tf-choice-text">Gmail</span>
-                        </label>
-                        <label class="tf-choice" data-key="B">
-                            <input type="radio" name="emailProvider" value="outlook">
-                            <span class="tf-choice-key">B</span>
-                            <span class="tf-choice-icon">📬</span>
-                            <span class="tf-choice-text">Outlook</span>
-                        </label>
-                        <label class="tf-choice" data-key="C">
-                            <input type="radio" name="emailProvider" value="zimbra">
-                            <span class="tf-choice-key">C</span>
-                            <span class="tf-choice-icon">📨</span>
-                            <span class="tf-choice-text">Zimbra</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 2: Email -->
-            <div class="tf-question" data-question="2">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">2 →</span>
-                    <h1 class="tf-title">Quelle est votre adresse email ?</h1>
-                    <p class="tf-subtitle">Les candidatures seront envoyées depuis cette adresse</p>
-
-                    <div class="tf-input-wrapper">
-                        <input type="email" name="email" class="tf-input" placeholder="votre@email.com" required autocomplete="email">
-                        <div class="tf-input-line"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 3: Full Name -->
-            <div class="tf-question" data-question="3">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">3 →</span>
-                    <h1 class="tf-title">Comment vous appelez-vous ?</h1>
-                    <p class="tf-subtitle">Votre nom complet pour les candidatures</p>
-
-                    <div class="tf-input-wrapper">
-                        <input type="text" name="fullName" class="tf-input" placeholder="Prénom Nom" required autocomplete="name">
-                        <div class="tf-input-line"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 4: Phone (Optional) -->
-            <div class="tf-question" data-question="4">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">4 →</span>
-                    <h1 class="tf-title">Votre numéro de téléphone</h1>
-                    <p class="tf-subtitle">Facultatif - Pour que les recruteurs puissent vous contacter</p>
-
-                    <div class="tf-input-wrapper">
-                        <input type="tel" name="phone" class="tf-input" placeholder="+33 6 12 34 56 78" autocomplete="tel">
-                        <div class="tf-input-line"></div>
-                    </div>
-
-                    <span class="tf-skip" onclick="nextQuestion()">Passer cette question</span>
-                </div>
-            </div>
-
-            <!-- Question 5: LinkedIn -->
-            <div class="tf-question" data-question="5">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">5 →</span>
-                    <h1 class="tf-title">Votre profil LinkedIn</h1>
-                    <p class="tf-subtitle">Facultatif - Un atout pour vos candidatures</p>
-
-                    <div class="tf-input-wrapper">
-                        <input type="url" name="linkedinUrl" class="tf-input" placeholder="https://linkedin.com/in/votre-profil">
-                        <div class="tf-input-line"></div>
-                    </div>
-
-                    <span class="tf-skip" onclick="nextQuestion()">Passer cette question</span>
-                </div>
-            </div>
-
-            <!-- Question 6: Current School -->
-            <div class="tf-question" data-question="6">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">6 →</span>
-                    <h1 class="tf-title">Dans quelle école êtes-vous ?</h1>
-                    <p class="tf-subtitle">Votre établissement actuel</p>
-
-                    <div class="tf-input-wrapper">
-                        <input type="text" name="currentSchool" class="tf-input" placeholder="ESSEC, HEC, Dauphine..." required>
-                        <div class="tf-input-line"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 7: Program Type -->
-            <div class="tf-question" data-question="7">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">7 →</span>
-                    <h1 class="tf-title">Quel type de programme suivez-vous ?</h1>
+                    <h1 class="tf-title">Comment souhaitez-vous être adressé(e) ?</h1>
+                    <p class="tf-subtitle">Pour personnaliser vos candidatures</p>
 
                     <div class="tf-choices tf-choices-list">
                         <label class="tf-choice" data-key="A">
-                            <input type="radio" name="currentProgram" value="PGE" required>
+                            <input type="radio" name="gender" value="male" required>
                             <span class="tf-choice-key">A</span>
-                            <span class="tf-choice-text">Programme Grande École (PGE)</span>
+                            <span class="tf-choice-icon">👨</span>
+                            <span class="tf-choice-text">Monsieur</span>
                         </label>
                         <label class="tf-choice" data-key="B">
-                            <input type="radio" name="currentProgram" value="Ingénieur">
+                            <input type="radio" name="gender" value="female">
                             <span class="tf-choice-key">B</span>
-                            <span class="tf-choice-text">Cycle Ingénieur</span>
+                            <span class="tf-choice-icon">👩</span>
+                            <span class="tf-choice-text">Madame</span>
                         </label>
                         <label class="tf-choice" data-key="C">
-                            <input type="radio" name="currentProgram" value="Master">
+                            <input type="radio" name="gender" value="neutral">
                             <span class="tf-choice-key">C</span>
-                            <span class="tf-choice-text">Master</span>
-                        </label>
-                        <label class="tf-choice" data-key="D">
-                            <input type="radio" name="currentProgram" value="Licence">
-                            <span class="tf-choice-key">D</span>
-                            <span class="tf-choice-text">Licence</span>
-                        </label>
-                        <label class="tf-choice" data-key="E">
-                            <input type="radio" name="currentProgram" value="Bachelor">
-                            <span class="tf-choice-key">E</span>
-                            <span class="tf-choice-text">Bachelor</span>
-                        </label>
-                        <label class="tf-choice" data-key="F">
-                            <input type="radio" name="currentProgram" value="BTS">
-                            <span class="tf-choice-key">F</span>
-                            <span class="tf-choice-text">BTS / BUT</span>
-                        </label>
-                        <label class="tf-choice" data-key="G">
-                            <input type="radio" name="currentProgram" value="Autre">
-                            <span class="tf-choice-key">G</span>
-                            <span class="tf-choice-text">Autre</span>
+                            <span class="tf-choice-icon">🙂</span>
+                            <span class="tf-choice-text">Pas de préférence</span>
                         </label>
                     </div>
                 </div>
             </div>
 
-            <!-- Question 8: Current Year -->
-            <div class="tf-question" data-question="8">
+            <!-- Question 2: First Name -->
+            <div class="tf-question" data-question="2">
                 <div class="tf-question-content">
-                    <span class="tf-question-number">8 →</span>
-                    <h1 class="tf-title">En quelle année êtes-vous ?</h1>
-
-                    <div class="tf-choices tf-choices-inline">
-                        <label class="tf-choice tf-choice-small" data-key="1">
-                            <input type="radio" name="currentYear" value="1" required>
-                            <span class="tf-choice-text">1ère</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="2">
-                            <input type="radio" name="currentYear" value="2">
-                            <span class="tf-choice-text">2ème</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="3">
-                            <input type="radio" name="currentYear" value="3">
-                            <span class="tf-choice-text">3ème</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="4">
-                            <input type="radio" name="currentYear" value="4">
-                            <span class="tf-choice-text">4ème</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="5">
-                            <input type="radio" name="currentYear" value="5">
-                            <span class="tf-choice-text">5ème</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 9: Major -->
-            <div class="tf-question" data-question="9">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">9 →</span>
-                    <h1 class="tf-title">Quelle est votre spécialisation ?</h1>
-                    <p class="tf-subtitle">Votre majeure ou domaine d'études</p>
+                    <span class="tf-question-number">2 →</span>
+                    <h1 class="tf-title">Quel est votre prénom ?</h1>
 
                     <div class="tf-input-wrapper">
-                        <input type="text" name="currentMajor" class="tf-input" placeholder="Finance, Marketing, Data Science..." required>
+                        <input type="text" name="firstName" id="firstName" class="tf-input" placeholder="Votre prénom" required autocomplete="given-name">
                         <div class="tf-input-line"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Question 10: Graduation Year -->
-            <div class="tf-question" data-question="10">
+            <!-- Question 3: Last Name -->
+            <div class="tf-question" data-question="3">
                 <div class="tf-question-content">
-                    <span class="tf-question-number">10 →</span>
-                    <h1 class="tf-title">Année de diplôme prévue ?</h1>
-
-                    <div class="tf-choices tf-choices-inline">
-                        <label class="tf-choice tf-choice-small" data-key="1">
-                            <input type="radio" name="expectedGraduation" value="2025" required>
-                            <span class="tf-choice-text">2025</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="2">
-                            <input type="radio" name="expectedGraduation" value="2026">
-                            <span class="tf-choice-text">2026</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="3">
-                            <input type="radio" name="expectedGraduation" value="2027">
-                            <span class="tf-choice-text">2027</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="4">
-                            <input type="radio" name="expectedGraduation" value="2028">
-                            <span class="tf-choice-text">2028</span>
-                        </label>
-                        <label class="tf-choice tf-choice-small" data-key="5">
-                            <input type="radio" name="expectedGraduation" value="2029">
-                            <span class="tf-choice-text">2029+</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 11: CV URL -->
-            <div class="tf-question" data-question="11">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">11 →</span>
-                    <h1 class="tf-title">Partagez votre CV</h1>
-                    <p class="tf-subtitle">Lien Google Drive, Dropbox, ou autre</p>
+                    <span class="tf-question-number">3 →</span>
+                    <h1 class="tf-title">Et votre nom de famille ?</h1>
 
                     <div class="tf-input-wrapper">
-                        <input type="url" name="cvUrl" class="tf-input" placeholder="https://drive.google.com/..." required>
+                        <input type="text" name="lastName" class="tf-input" placeholder="Votre nom" required autocomplete="family-name">
                         <div class="tf-input-line"></div>
-                    </div>
-
-                    <div class="tf-upload-zone" id="uploadZone">
-                        <span class="tf-upload-icon">📎</span>
-                        <span class="tf-upload-text">Ou glissez votre fichier ici</span>
-                        <input type="file" id="cvFile" accept=".pdf,.doc,.docx" hidden>
                     </div>
                 </div>
             </div>
 
-            <!-- Question 12: Contract Type -->
-            <div class="tf-question" data-question="12">
+            <!-- Question 4: Contract Type -->
+            <div class="tf-question" data-question="4">
                 <div class="tf-question-content">
-                    <span class="tf-question-number">12 →</span>
+                    <span class="tf-question-number">4 →</span>
                     <h1 class="tf-title">Quel type de contrat recherchez-vous ?</h1>
 
                     <div class="tf-choices tf-choices-icons">
@@ -314,10 +126,10 @@
                 </div>
             </div>
 
-            <!-- Question 13: Domains -->
-            <div class="tf-question" data-question="13">
+            <!-- Question 5: Domains -->
+            <div class="tf-question" data-question="5">
                 <div class="tf-question-content">
-                    <span class="tf-question-number">13 →</span>
+                    <span class="tf-question-number">5 →</span>
                     <h1 class="tf-title">Dans quel(s) domaine(s) ?</h1>
                     <p class="tf-subtitle">Sélectionnez un ou plusieurs secteurs</p>
 
@@ -362,53 +174,686 @@
                             <input type="checkbox" name="domains" value="sante">
                             <span class="tf-choice-text">Santé</span>
                         </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="audit">
+                            <span class="tf-choice-text">Audit</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="luxe">
+                            <span class="tf-choice-text">Luxe</span>
+                        </label>
                     </div>
                 </div>
             </div>
 
-            <!-- Question 14: Location -->
-            <div class="tf-question" data-question="14">
+            <!-- Question 6: Specific Position -->
+            <div class="tf-question" data-question="6">
                 <div class="tf-question-content">
-                    <span class="tf-question-number">14 →</span>
-                    <h1 class="tf-title">Où souhaitez-vous travailler ?</h1>
-                    <p class="tf-subtitle">Ville, région ou "Remote"</p>
-
-                    <div class="tf-input-wrapper">
-                        <input type="text" name="location" class="tf-input" placeholder="Paris, Lyon, Remote..." required>
-                        <div class="tf-input-line"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 15: Specific Position (Optional) -->
-            <div class="tf-question" data-question="15">
-                <div class="tf-question-content">
-                    <span class="tf-question-number">15 →</span>
+                    <span class="tf-question-number">6 →</span>
                     <h1 class="tf-title">Un poste précis en tête ?</h1>
-                    <p class="tf-subtitle">Facultatif - Affinez votre recherche</p>
+                    <p class="tf-subtitle">Ou laissez-nous vous proposer les meilleures offres</p>
 
                     <div class="tf-input-wrapper">
                         <input type="text" name="specificPosition" class="tf-input" placeholder="Chef de projet, Analyste, Développeur...">
                         <div class="tf-input-line"></div>
                     </div>
 
-                    <span class="tf-skip" onclick="submitForm()">Terminer sans préciser</span>
+                    <button type="button" class="tf-btn-skip-position" onclick="skipWithValue('specificPosition', 'any'); nextQuestion();">
+                        N'importe quel poste me convient dans le ou les domaine(s) sélectionné(s)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 7: Country -->
+            <div class="tf-question" data-question="7">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">7 →</span>
+                    <h1 class="tf-title">Dans quel pays souhaitez-vous travailler ?</h1>
+
+                    <div class="tf-choices tf-choices-list">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="country" value="france" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-icon">🇫🇷</span>
+                            <span class="tf-choice-text">France</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="country" value="belgique">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-icon">🇧🇪</span>
+                            <span class="tf-choice-text">Belgique</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="country" value="suisse">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-icon">🇨🇭</span>
+                            <span class="tf-choice-text">Suisse</span>
+                        </label>
+                        <label class="tf-choice" data-key="D">
+                            <input type="radio" name="country" value="luxembourg">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-icon">🇱🇺</span>
+                            <span class="tf-choice-text">Luxembourg</span>
+                        </label>
+                        <label class="tf-choice" data-key="E">
+                            <input type="radio" name="country" value="uk">
+                            <span class="tf-choice-key">E</span>
+                            <span class="tf-choice-icon">🇬🇧</span>
+                            <span class="tf-choice-text">Royaume-Uni</span>
+                        </label>
+                        <label class="tf-choice" data-key="F" id="otherCountryChoice">
+                            <input type="radio" name="country" value="other">
+                            <span class="tf-choice-key">F</span>
+                            <span class="tf-choice-icon">🌍</span>
+                            <span class="tf-choice-text">Autres pays</span>
+                        </label>
+                    </div>
+
+                    <!-- Sélecteur de pays supplémentaires (caché par défaut) -->
+                    <div class="tf-other-countries" id="otherCountriesSelector" style="display: none;">
+                        <p class="tf-subtitle" style="margin-top: 20px;">Sélectionnez un ou plusieurs pays</p>
+                        <div class="tf-choices tf-choices-multi tf-countries-list">
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="allemagne">
+                                <span class="tf-choice-text">🇩🇪 Allemagne</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="espagne">
+                                <span class="tf-choice-text">🇪🇸 Espagne</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="italie">
+                                <span class="tf-choice-text">🇮🇹 Italie</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="pays-bas">
+                                <span class="tf-choice-text">🇳🇱 Pays-Bas</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="portugal">
+                                <span class="tf-choice-text">🇵🇹 Portugal</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="irlande">
+                                <span class="tf-choice-text">🇮🇪 Irlande</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="canada">
+                                <span class="tf-choice-text">🇨🇦 Canada</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="usa">
+                                <span class="tf-choice-text">🇺🇸 États-Unis</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="australie">
+                                <span class="tf-choice-text">🇦🇺 Australie</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="singapour">
+                                <span class="tf-choice-text">🇸🇬 Singapour</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="japon">
+                                <span class="tf-choice-text">🇯🇵 Japon</span>
+                            </label>
+                            <label class="tf-choice tf-choice-tag">
+                                <input type="checkbox" name="otherCountries" value="emirats">
+                                <span class="tf-choice-text">🇦🇪 Émirats</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 8: Cities -->
+            <div class="tf-question" data-question="8">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">8 →</span>
+                    <h1 class="tf-title">Dans quelle(s) ville(s) ?</h1>
+                    <p class="tf-subtitle">Sélectionnez une ou plusieurs villes</p>
+
+                    <div class="tf-choices tf-choices-multi" id="citiesContainer">
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="paris">
+                            <span class="tf-choice-text">Paris</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="lyon">
+                            <span class="tf-choice-text">Lyon</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="marseille">
+                            <span class="tf-choice-text">Marseille</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="bordeaux">
+                            <span class="tf-choice-text">Bordeaux</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="lille">
+                            <span class="tf-choice-text">Lille</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="toulouse">
+                            <span class="tf-choice-text">Toulouse</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="nantes">
+                            <span class="tf-choice-text">Nantes</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="strasbourg">
+                            <span class="tf-choice-text">Strasbourg</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="nice">
+                            <span class="tf-choice-text">Nice</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="cities" value="remote">
+                            <span class="tf-choice-text">Remote</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 9: Work Flexibility -->
+            <div class="tf-question" data-question="9">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">9 →</span>
+                    <h1 class="tf-title">Votre préférence de travail ?</h1>
+
+                    <div class="tf-choices tf-choices-list">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="flexibility" value="onsite" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-icon">🏢</span>
+                            <span class="tf-choice-text">Sur site uniquement</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="flexibility" value="hybrid">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-icon">🔄</span>
+                            <span class="tf-choice-text">Hybride</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="flexibility" value="remote">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-icon">🏠</span>
+                            <span class="tf-choice-text">Full remote</span>
+                        </label>
+                        <label class="tf-choice" data-key="D">
+                            <input type="radio" name="flexibility" value="any">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-icon">🤷</span>
+                            <span class="tf-choice-text">Peu importe</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 10: Salary -->
+            <div class="tf-question" data-question="10">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">10 →</span>
+                    <h1 class="tf-title">Vos prétentions salariales ?</h1>
+                    <p class="tf-subtitle">Salaire brut annuel souhaité</p>
+
+                    <div class="tf-choices tf-choices-list">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="salaryRange" value="stage">
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-text">Stage (gratification légale)</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="salaryRange" value="25-35k">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-text">25 000 - 35 000 €</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="salaryRange" value="35-45k">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-text">35 000 - 45 000 €</span>
+                        </label>
+                        <label class="tf-choice" data-key="D">
+                            <input type="radio" name="salaryRange" value="45-55k">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-text">45 000 - 55 000 €</span>
+                        </label>
+                        <label class="tf-choice" data-key="E">
+                            <input type="radio" name="salaryRange" value="55-70k">
+                            <span class="tf-choice-key">E</span>
+                            <span class="tf-choice-text">55 000 - 70 000 €</span>
+                        </label>
+                        <label class="tf-choice" data-key="F">
+                            <input type="radio" name="salaryRange" value="70k+">
+                            <span class="tf-choice-key">F</span>
+                            <span class="tf-choice-text">70 000 € et plus</span>
+                        </label>
+                    </div>
+
+                    <span class="tf-skip" onclick="nextQuestion()">Passer cette question</span>
+                </div>
+            </div>
+
+            <!-- Question 11: Seniority Level -->
+            <div class="tf-question" data-question="11">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">11 →</span>
+                    <h1 class="tf-title">Quel est votre niveau d'expérience ?</h1>
+
+                    <div class="tf-choices tf-choices-list">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="seniority" value="student" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-icon">🎓</span>
+                            <span class="tf-choice-text">Étudiant(e)</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="seniority" value="junior">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-icon">🌱</span>
+                            <span class="tf-choice-text">Junior (0-2 ans)</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="seniority" value="confirmed">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-icon">💪</span>
+                            <span class="tf-choice-text">Confirmé (3-5 ans)</span>
+                        </label>
+                        <label class="tf-choice" data-key="D">
+                            <input type="radio" name="seniority" value="senior">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-icon">⭐</span>
+                            <span class="tf-choice-text">Senior (5+ ans)</span>
+                        </label>
+                        <label class="tf-choice" data-key="E">
+                            <input type="radio" name="seniority" value="lead">
+                            <span class="tf-choice-key">E</span>
+                            <span class="tf-choice-icon">👑</span>
+                            <span class="tf-choice-text">Lead / Manager</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 12: Availability -->
+            <div class="tf-question" data-question="12">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">12 →</span>
+                    <h1 class="tf-title">Quand êtes-vous disponible ?</h1>
+
+                    <div class="tf-choices tf-choices-list">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="availability" value="immediately" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-icon">⚡</span>
+                            <span class="tf-choice-text">Immédiatement</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="availability" value="1month">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-icon">📅</span>
+                            <span class="tf-choice-text">Dans 1 mois</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="availability" value="3months">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-icon">🗓️</span>
+                            <span class="tf-choice-text">Dans 2-3 mois</span>
+                        </label>
+                        <label class="tf-choice tf-choice-date" data-key="D" id="customDateChoice">
+                            <input type="radio" name="availability" value="custom_date">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-icon">📆</span>
+                            <span class="tf-choice-text">Choisir une date précise</span>
+                        </label>
+                    </div>
+
+                    <!-- Calendrier personnalisé (caché par défaut) -->
+                    <div class="tf-calendar-container" id="calendarContainer" style="display: none;">
+                        <div class="tf-calendar">
+                            <div class="tf-calendar-header">
+                                <button type="button" class="tf-calendar-nav" id="prevMonth">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 18l-6-6 6-6"/>
+                                    </svg>
+                                </button>
+                                <div class="tf-calendar-title">
+                                    <span id="calendarMonth">Janvier</span>
+                                    <span id="calendarYear">2026</span>
+                                </div>
+                                <button type="button" class="tf-calendar-nav" id="nextMonth">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 18l6-6-6-6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="tf-calendar-weekdays">
+                                <span>Lun</span>
+                                <span>Mar</span>
+                                <span>Mer</span>
+                                <span>Jeu</span>
+                                <span>Ven</span>
+                                <span>Sam</span>
+                                <span>Dim</span>
+                            </div>
+                            <div class="tf-calendar-days" id="calendarDays">
+                                <!-- Days will be generated by JS -->
+                            </div>
+                        </div>
+                        <input type="hidden" name="availabilityDate" id="availabilityDate">
+                        <div class="tf-calendar-selected" id="selectedDateDisplay" style="display: none;">
+                            Date sélectionnée : <span id="selectedDateText"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== POPUP TRANSITION ==================== -->
+            <div class="tf-question tf-popup-transition" data-question="13">
+                <div class="tf-question-content tf-popup-content">
+                    <div class="tf-popup-icon">🚀</div>
+                    <h1 class="tf-title">Parfait <span id="popupFirstName"></span> !</h1>
+                    <p class="tf-subtitle">Construisons rapidement votre profil pour personnaliser vos candidatures</p>
+
+                    <button type="button" class="tf-btn tf-btn-primary" onclick="nextQuestion()">
+                        <span>C'est parti</span>
+                        <span class="tf-btn-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ==================== PARTIE 2: PROFIL ==================== -->
+
+            <!-- Question 14: Program Type -->
+            <div class="tf-question" data-question="14">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">14 →</span>
+                    <h1 class="tf-title">Quel type de programme ?</h1>
+
+                    <div class="tf-choices tf-choices-list">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="currentProgram" value="PGE" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-text">Programme Grande École (PGE)</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="currentProgram" value="Ingénieur">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-text">Cycle Ingénieur</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="currentProgram" value="Master">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-text">Master</span>
+                        </label>
+                        <label class="tf-choice" data-key="D">
+                            <input type="radio" name="currentProgram" value="Licence">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-text">Licence</span>
+                        </label>
+                        <label class="tf-choice" data-key="E">
+                            <input type="radio" name="currentProgram" value="Bachelor">
+                            <span class="tf-choice-key">E</span>
+                            <span class="tf-choice-text">Bachelor</span>
+                        </label>
+                        <label class="tf-choice" data-key="F">
+                            <input type="radio" name="currentProgram" value="BTS">
+                            <span class="tf-choice-key">F</span>
+                            <span class="tf-choice-text">BTS / BUT</span>
+                        </label>
+                        <label class="tf-choice" data-key="G">
+                            <input type="radio" name="currentProgram" value="Autre">
+                            <span class="tf-choice-key">G</span>
+                            <span class="tf-choice-text">Autre / Déjà diplômé</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 15: Current School -->
+            <div class="tf-question" data-question="15">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">15 →</span>
+                    <h1 class="tf-title">Dans quelle école êtes-vous ?</h1>
+                    <p class="tf-subtitle">Votre établissement actuel (ou dernier diplôme)</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="text" name="currentSchool" class="tf-input" placeholder="ESSEC, HEC, Dauphine..." required>
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 16: Current Year -->
+            <div class="tf-question" data-question="16">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">16 →</span>
+                    <h1 class="tf-title">En quelle année êtes-vous ?</h1>
+
+                    <div class="tf-choices tf-choices-inline">
+                        <label class="tf-choice tf-choice-small" data-key="1">
+                            <input type="radio" name="currentYear" value="1" required>
+                            <span class="tf-choice-text">1ère</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="2">
+                            <input type="radio" name="currentYear" value="2">
+                            <span class="tf-choice-text">2ème</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="3">
+                            <input type="radio" name="currentYear" value="3">
+                            <span class="tf-choice-text">3ème</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="4">
+                            <input type="radio" name="currentYear" value="4">
+                            <span class="tf-choice-text">4ème</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="5">
+                            <input type="radio" name="currentYear" value="5">
+                            <span class="tf-choice-text">5ème</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="6">
+                            <input type="radio" name="currentYear" value="diplome">
+                            <span class="tf-choice-text">Diplômé</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 17: Major -->
+            <div class="tf-question" data-question="17">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">17 →</span>
+                    <h1 class="tf-title">Quelle est votre spécialisation ?</h1>
+                    <p class="tf-subtitle">Votre majeure ou domaine d'études</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="text" name="currentMajor" class="tf-input" placeholder="Finance, Marketing, Data Science..." required>
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 18: Experiences -->
+            <div class="tf-question" data-question="18">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">18 →</span>
+                    <h1 class="tf-title">Vos expériences professionnelles</h1>
+                    <p class="tf-subtitle">Stages, alternances, emplois...</p>
+
+                    <div class="tf-experiences-list" id="experiencesList">
+                        <div class="tf-experience-item" data-index="0">
+                            <div class="tf-experience-row">
+                                <input type="text" name="exp_company_0" class="tf-input tf-input-small" placeholder="Entreprise">
+                                <input type="text" name="exp_position_0" class="tf-input tf-input-small" placeholder="Poste">
+                                <input type="text" name="exp_duration_0" class="tf-input tf-input-small" placeholder="Durée">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="tf-add-btn" onclick="addExperience()">
+                        <span>+</span> Ajouter une expérience
+                    </button>
+
+                    <span class="tf-skip" onclick="nextQuestion()">Passer si aucune expérience</span>
+                </div>
+            </div>
+
+            <!-- Question 19: Profile Description -->
+            <div class="tf-question" data-question="19">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">19 →</span>
+                    <h1 class="tf-title">Décrivez-vous en quelques lignes</h1>
+                    <p class="tf-subtitle">L'IA utilisera cette description pour personnaliser vos candidatures</p>
+
+                    <div class="tf-textarea-wrapper">
+                        <textarea name="profileDescription" class="tf-textarea" placeholder="Ex: Étudiant en finance passionné par les marchés financiers, avec une première expérience en M&A chez Rothschild..." rows="4" required></textarea>
+                        <div class="tf-textarea-counter"><span id="charCount">0</span> / 500</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 20: CV URL -->
+            <div class="tf-question" data-question="20">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">20 →</span>
+                    <h1 class="tf-title">Partagez votre CV</h1>
+                    <p class="tf-subtitle">Lien Google Drive, Dropbox, ou autre</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="url" name="cvUrl" class="tf-input" placeholder="https://drive.google.com/..." required>
+                        <div class="tf-input-line"></div>
+                    </div>
+
+                    <div class="tf-upload-zone" id="uploadZone">
+                        <span class="tf-upload-icon">📎</span>
+                        <span class="tf-upload-text">Ou glissez votre fichier ici</span>
+                        <input type="file" id="cvFile" accept=".pdf,.doc,.docx" hidden>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 21: LinkedIn -->
+            <div class="tf-question" data-question="21">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">21 →</span>
+                    <h1 class="tf-title">Votre profil LinkedIn</h1>
+                    <p class="tf-subtitle">Facultatif - Un atout pour vos candidatures</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="url" name="linkedinUrl" class="tf-input" placeholder="https://linkedin.com/in/votre-profil">
+                        <div class="tf-input-line"></div>
+                    </div>
+
+                    <span class="tf-skip" onclick="nextQuestion()">Passer cette question</span>
+                </div>
+            </div>
+
+            <!-- ==================== PARTIE 3: CONTACT ==================== -->
+
+            <!-- Question 22: Email -->
+            <div class="tf-question" data-question="22">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">22 →</span>
+                    <h1 class="tf-title">Quelle est votre adresse email ?</h1>
+                    <p class="tf-subtitle">Les candidatures seront envoyées depuis cette adresse</p>
+
+                    <div class="tf-choices tf-choices-icons tf-email-providers">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="emailProvider" value="gmail" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-icon">📧</span>
+                            <span class="tf-choice-text">Gmail</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="emailProvider" value="outlook">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-icon">📬</span>
+                            <span class="tf-choice-text">Outlook</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="emailProvider" value="zimbra">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-icon">📨</span>
+                            <span class="tf-choice-text">Autre</span>
+                        </label>
+                    </div>
+
+                    <div class="tf-input-wrapper" style="margin-top: 30px;">
+                        <input type="email" name="email" class="tf-input" placeholder="votre@email.com" required autocomplete="email">
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 23: Phone (Last) -->
+            <div class="tf-question" data-question="23">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">23 →</span>
+                    <h1 class="tf-title">Votre numéro de téléphone</h1>
+                    <p class="tf-subtitle">Facultatif - Pour que les recruteurs puissent vous contacter</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="tel" name="phone" class="tf-input" placeholder="+33 6 12 34 56 78" autocomplete="tel">
+                        <div class="tf-input-line"></div>
+                    </div>
+
+                    <span class="tf-skip" onclick="nextQuestion()">Passer cette question</span>
                 </div>
             </div>
 
             <!-- Success Screen -->
             <div class="tf-question tf-success" data-question="success">
-                <div class="tf-question-content">
-                    <div class="tf-success-icon">
+                <div class="tf-question-content tf-final-content">
+                    <div class="tf-confetti" id="confetti"></div>
+
+                    <div class="tf-success-icon tf-success-animated">
                         <span class="tf-checkmark">✓</span>
                     </div>
-                    <h1 class="tf-title">C'est tout bon !</h1>
-                    <p class="tf-subtitle">Votre profil est prêt. Nous allons maintenant rechercher les meilleures offres pour vous.</p>
 
-                    <a href="dashboard.html" class="tf-btn tf-btn-primary">
-                        <span>Voir mon tableau de bord</span>
-                        <span class="tf-btn-arrow">→</span>
-                    </a>
+                    <h1 class="tf-title tf-title-success">
+                        Félicitations <span id="successFirstName" class="tf-highlight-name"></span> !
+                    </h1>
+
+                    <p class="tf-subtitle tf-subtitle-success">
+                        Votre profil est maintenant complet. Nous avons tout ce qu'il faut pour trouver les meilleures offres et envoyer des candidatures personnalisées en votre nom.
+                    </p>
+
+                    <div class="tf-success-summary">
+                        <div class="tf-summary-item">
+                            <span class="tf-summary-icon">🎯</span>
+                            <span class="tf-summary-text">Recherche personnalisée selon vos critères</span>
+                        </div>
+                        <div class="tf-summary-item">
+                            <span class="tf-summary-icon">✉️</span>
+                            <span class="tf-summary-text">Emails uniques générés par IA</span>
+                        </div>
+                        <div class="tf-summary-item">
+                            <span class="tf-summary-icon">🚀</span>
+                            <span class="tf-summary-text">Envoi automatique avec votre CV</span>
+                        </div>
+                    </div>
+
+                    <div class="tf-success-actions">
+                        <button type="button" class="tf-btn tf-btn-primary tf-btn-send tf-btn-glow" id="sendApplicationsBtn" onclick="sendApplications()">
+                            <span class="btn-text">
+                                <span class="btn-icon">🚀</span>
+                                Lancer mes candidatures
+                            </span>
+                            <span class="btn-loading" style="display: none;">
+                                <span class="tf-spinner-small"></span>
+                                <span>Recherche en cours...</span>
+                            </span>
+                        </button>
+
+                        <p class="tf-success-hint">Cliquez pour lancer la recherche et l'envoi automatique</p>
+
+                        <a href="dashboard.html" class="tf-btn tf-btn-secondary-link">
+                            Voir mon tableau de bord →
+                        </a>
+                    </div>
                 </div>
             </div>
 
