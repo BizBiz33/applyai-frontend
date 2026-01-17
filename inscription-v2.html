@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApplyAI - Inscription</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="typeform.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="tf-progress">
+        <div class="tf-progress-bar" id="progressBar"></div>
+        <div class="tf-progress-text">
+            <span id="currentQuestion">1</span> / <span id="totalQuestions">15</span>
+        </div>
+    </div>
+
+    <!-- Logo -->
+    <a href="index.html" class="tf-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">ApplyAI</span>
+    </a>
+
+    <!-- Main Container -->
+    <div class="tf-container">
+        <form id="typeform" class="tf-form">
+
+            <!-- Question 1: Email Provider -->
+            <div class="tf-question active" data-question="1">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">1 →</span>
+                    <h1 class="tf-title">Quel service email utilisez-vous ?</h1>
+                    <p class="tf-subtitle">Nous l'utiliserons pour envoyer vos candidatures</p>
+
+                    <div class="tf-choices tf-choices-icons">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="emailProvider" value="gmail" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-icon">📧</span>
+                            <span class="tf-choice-text">Gmail</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="emailProvider" value="outlook">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-icon">📬</span>
+                            <span class="tf-choice-text">Outlook</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="emailProvider" value="zimbra">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-icon">📨</span>
+                            <span class="tf-choice-text">Zimbra</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2: Email -->
+            <div class="tf-question" data-question="2">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">2 →</span>
+                    <h1 class="tf-title">Quelle est votre adresse email ?</h1>
+                    <p class="tf-subtitle">Les candidatures seront envoyées depuis cette adresse</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="email" name="email" class="tf-input" placeholder="votre@email.com" required autocomplete="email">
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3: Full Name -->
+            <div class="tf-question" data-question="3">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">3 →</span>
+                    <h1 class="tf-title">Comment vous appelez-vous ?</h1>
+                    <p class="tf-subtitle">Votre nom complet pour les candidatures</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="text" name="fullName" class="tf-input" placeholder="Prénom Nom" required autocomplete="name">
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4: Phone (Optional) -->
+            <div class="tf-question" data-question="4">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">4 →</span>
+                    <h1 class="tf-title">Votre numéro de téléphone</h1>
+                    <p class="tf-subtitle">Facultatif - Pour que les recruteurs puissent vous contacter</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="tel" name="phone" class="tf-input" placeholder="+33 6 12 34 56 78" autocomplete="tel">
+                        <div class="tf-input-line"></div>
+                    </div>
+
+                    <span class="tf-skip" onclick="nextQuestion()">Passer cette question</span>
+                </div>
+            </div>
+
+            <!-- Question 5: LinkedIn -->
+            <div class="tf-question" data-question="5">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">5 →</span>
+                    <h1 class="tf-title">Votre profil LinkedIn</h1>
+                    <p class="tf-subtitle">Facultatif - Un atout pour vos candidatures</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="url" name="linkedinUrl" class="tf-input" placeholder="https://linkedin.com/in/votre-profil">
+                        <div class="tf-input-line"></div>
+                    </div>
+
+                    <span class="tf-skip" onclick="nextQuestion()">Passer cette question</span>
+                </div>
+            </div>
+
+            <!-- Question 6: Current School -->
+            <div class="tf-question" data-question="6">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">6 →</span>
+                    <h1 class="tf-title">Dans quelle école êtes-vous ?</h1>
+                    <p class="tf-subtitle">Votre établissement actuel</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="text" name="currentSchool" class="tf-input" placeholder="ESSEC, HEC, Dauphine..." required>
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 7: Program Type -->
+            <div class="tf-question" data-question="7">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">7 →</span>
+                    <h1 class="tf-title">Quel type de programme suivez-vous ?</h1>
+
+                    <div class="tf-choices tf-choices-list">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="currentProgram" value="PGE" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-text">Programme Grande École (PGE)</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="currentProgram" value="Ingénieur">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-text">Cycle Ingénieur</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="currentProgram" value="Master">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-text">Master</span>
+                        </label>
+                        <label class="tf-choice" data-key="D">
+                            <input type="radio" name="currentProgram" value="Licence">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-text">Licence</span>
+                        </label>
+                        <label class="tf-choice" data-key="E">
+                            <input type="radio" name="currentProgram" value="Bachelor">
+                            <span class="tf-choice-key">E</span>
+                            <span class="tf-choice-text">Bachelor</span>
+                        </label>
+                        <label class="tf-choice" data-key="F">
+                            <input type="radio" name="currentProgram" value="BTS">
+                            <span class="tf-choice-key">F</span>
+                            <span class="tf-choice-text">BTS / BUT</span>
+                        </label>
+                        <label class="tf-choice" data-key="G">
+                            <input type="radio" name="currentProgram" value="Autre">
+                            <span class="tf-choice-key">G</span>
+                            <span class="tf-choice-text">Autre</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 8: Current Year -->
+            <div class="tf-question" data-question="8">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">8 →</span>
+                    <h1 class="tf-title">En quelle année êtes-vous ?</h1>
+
+                    <div class="tf-choices tf-choices-inline">
+                        <label class="tf-choice tf-choice-small" data-key="1">
+                            <input type="radio" name="currentYear" value="1" required>
+                            <span class="tf-choice-text">1ère</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="2">
+                            <input type="radio" name="currentYear" value="2">
+                            <span class="tf-choice-text">2ème</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="3">
+                            <input type="radio" name="currentYear" value="3">
+                            <span class="tf-choice-text">3ème</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="4">
+                            <input type="radio" name="currentYear" value="4">
+                            <span class="tf-choice-text">4ème</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="5">
+                            <input type="radio" name="currentYear" value="5">
+                            <span class="tf-choice-text">5ème</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 9: Major -->
+            <div class="tf-question" data-question="9">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">9 →</span>
+                    <h1 class="tf-title">Quelle est votre spécialisation ?</h1>
+                    <p class="tf-subtitle">Votre majeure ou domaine d'études</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="text" name="currentMajor" class="tf-input" placeholder="Finance, Marketing, Data Science..." required>
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 10: Graduation Year -->
+            <div class="tf-question" data-question="10">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">10 →</span>
+                    <h1 class="tf-title">Année de diplôme prévue ?</h1>
+
+                    <div class="tf-choices tf-choices-inline">
+                        <label class="tf-choice tf-choice-small" data-key="1">
+                            <input type="radio" name="expectedGraduation" value="2025" required>
+                            <span class="tf-choice-text">2025</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="2">
+                            <input type="radio" name="expectedGraduation" value="2026">
+                            <span class="tf-choice-text">2026</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="3">
+                            <input type="radio" name="expectedGraduation" value="2027">
+                            <span class="tf-choice-text">2027</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="4">
+                            <input type="radio" name="expectedGraduation" value="2028">
+                            <span class="tf-choice-text">2028</span>
+                        </label>
+                        <label class="tf-choice tf-choice-small" data-key="5">
+                            <input type="radio" name="expectedGraduation" value="2029">
+                            <span class="tf-choice-text">2029+</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 11: CV URL -->
+            <div class="tf-question" data-question="11">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">11 →</span>
+                    <h1 class="tf-title">Partagez votre CV</h1>
+                    <p class="tf-subtitle">Lien Google Drive, Dropbox, ou autre</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="url" name="cvUrl" class="tf-input" placeholder="https://drive.google.com/..." required>
+                        <div class="tf-input-line"></div>
+                    </div>
+
+                    <div class="tf-upload-zone" id="uploadZone">
+                        <span class="tf-upload-icon">📎</span>
+                        <span class="tf-upload-text">Ou glissez votre fichier ici</span>
+                        <input type="file" id="cvFile" accept=".pdf,.doc,.docx" hidden>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 12: Contract Type -->
+            <div class="tf-question" data-question="12">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">12 →</span>
+                    <h1 class="tf-title">Quel type de contrat recherchez-vous ?</h1>
+
+                    <div class="tf-choices tf-choices-icons">
+                        <label class="tf-choice" data-key="A">
+                            <input type="radio" name="contractType" value="stage" required>
+                            <span class="tf-choice-key">A</span>
+                            <span class="tf-choice-icon">🎓</span>
+                            <span class="tf-choice-text">Stage</span>
+                        </label>
+                        <label class="tf-choice" data-key="B">
+                            <input type="radio" name="contractType" value="alternance">
+                            <span class="tf-choice-key">B</span>
+                            <span class="tf-choice-icon">📚</span>
+                            <span class="tf-choice-text">Alternance</span>
+                        </label>
+                        <label class="tf-choice" data-key="C">
+                            <input type="radio" name="contractType" value="cdi">
+                            <span class="tf-choice-key">C</span>
+                            <span class="tf-choice-icon">💼</span>
+                            <span class="tf-choice-text">CDI</span>
+                        </label>
+                        <label class="tf-choice" data-key="D">
+                            <input type="radio" name="contractType" value="cdd">
+                            <span class="tf-choice-key">D</span>
+                            <span class="tf-choice-icon">📝</span>
+                            <span class="tf-choice-text">CDD</span>
+                        </label>
+                        <label class="tf-choice" data-key="E">
+                            <input type="radio" name="contractType" value="freelance">
+                            <span class="tf-choice-key">E</span>
+                            <span class="tf-choice-icon">🚀</span>
+                            <span class="tf-choice-text">Freelance</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 13: Domains -->
+            <div class="tf-question" data-question="13">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">13 →</span>
+                    <h1 class="tf-title">Dans quel(s) domaine(s) ?</h1>
+                    <p class="tf-subtitle">Sélectionnez un ou plusieurs secteurs</p>
+
+                    <div class="tf-choices tf-choices-multi">
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="marketing">
+                            <span class="tf-choice-text">Marketing</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="finance">
+                            <span class="tf-choice-text">Finance</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="tech">
+                            <span class="tf-choice-text">Tech / IT</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="consulting">
+                            <span class="tf-choice-text">Conseil</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="commerce">
+                            <span class="tf-choice-text">Commerce</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="rh">
+                            <span class="tf-choice-text">RH</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="design">
+                            <span class="tf-choice-text">Design</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="juridique">
+                            <span class="tf-choice-text">Juridique</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="ingenierie">
+                            <span class="tf-choice-text">Ingénierie</span>
+                        </label>
+                        <label class="tf-choice tf-choice-tag">
+                            <input type="checkbox" name="domains" value="sante">
+                            <span class="tf-choice-text">Santé</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 14: Location -->
+            <div class="tf-question" data-question="14">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">14 →</span>
+                    <h1 class="tf-title">Où souhaitez-vous travailler ?</h1>
+                    <p class="tf-subtitle">Ville, région ou "Remote"</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="text" name="location" class="tf-input" placeholder="Paris, Lyon, Remote..." required>
+                        <div class="tf-input-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 15: Specific Position (Optional) -->
+            <div class="tf-question" data-question="15">
+                <div class="tf-question-content">
+                    <span class="tf-question-number">15 →</span>
+                    <h1 class="tf-title">Un poste précis en tête ?</h1>
+                    <p class="tf-subtitle">Facultatif - Affinez votre recherche</p>
+
+                    <div class="tf-input-wrapper">
+                        <input type="text" name="specificPosition" class="tf-input" placeholder="Chef de projet, Analyste, Développeur...">
+                        <div class="tf-input-line"></div>
+                    </div>
+
+                    <span class="tf-skip" onclick="submitForm()">Terminer sans préciser</span>
+                </div>
+            </div>
+
+            <!-- Success Screen -->
+            <div class="tf-question tf-success" data-question="success">
+                <div class="tf-question-content">
+                    <div class="tf-success-icon">
+                        <span class="tf-checkmark">✓</span>
+                    </div>
+                    <h1 class="tf-title">C'est tout bon !</h1>
+                    <p class="tf-subtitle">Votre profil est prêt. Nous allons maintenant rechercher les meilleures offres pour vous.</p>
+
+                    <a href="dashboard.html" class="tf-btn tf-btn-primary">
+                        <span>Voir mon tableau de bord</span>
+                        <span class="tf-btn-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Navigation -->
+    <div class="tf-nav">
+        <button type="button" class="tf-nav-btn" id="prevBtn" onclick="prevQuestion()" disabled>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </button>
+        <button type="button" class="tf-nav-btn tf-nav-next" id="nextBtn" onclick="nextQuestion()">
+            <span>OK</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </button>
+        <span class="tf-nav-hint">Appuyez sur <kbd>Entrée</kbd> ↵</span>
+    </div>
+
+    <script src="typeform.js"></script>
+</body>
+</html>

@@ -1,0 +1,782 @@
+/* ============================================
+   ApplyAI - Typeform Style CSS
+   Design: Conversational UI, One question per screen
+   Animations: Smooth, Fluid, Premium
+   ============================================ */
+
+/* Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #1a1a24;
+
+    /* Blue accent */
+    --blue-400: #60a5fa;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-glow: rgba(59, 130, 246, 0.4);
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+
+    /* Accents */
+    --green-500: #22c55e;
+    --green-glow: rgba(34, 197, 94, 0.4);
+    --border-color: rgba(255, 255, 255, 0.1);
+
+    /* Animation */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --duration-fast: 0.2s;
+    --duration-normal: 0.4s;
+    --duration-slow: 0.6s;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* ============================================
+   Progress Bar
+   ============================================ */
+.tf-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--bg-secondary);
+    z-index: 100;
+}
+
+.tf-progress-bar {
+    height: 100%;
+    width: 6.67%; /* 1/15 */
+    background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
+    border-radius: 0 2px 2px 0;
+    transition: width var(--duration-slow) var(--ease-out-expo);
+    box-shadow: 0 0 20px var(--blue-glow);
+}
+
+.tf-progress-text {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    z-index: 100;
+}
+
+/* ============================================
+   Logo
+   ============================================ */
+.tf-logo {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    z-index: 100;
+    transition: opacity var(--duration-fast) ease;
+}
+
+.tf-logo:hover {
+    opacity: 0.8;
+}
+
+.tf-logo .logo-icon {
+    font-size: 1.5rem;
+}
+
+.tf-logo .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+.tf-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 120px;
+}
+
+.tf-form {
+    width: 100%;
+    max-width: 680px;
+    position: relative;
+}
+
+/* ============================================
+   Question Slides
+   ============================================ */
+.tf-question {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all var(--duration-slow) var(--ease-out-expo);
+}
+
+.tf-question.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Slide animations */
+.tf-question.slide-up {
+    transform: translateY(-30%);
+    opacity: 0;
+}
+
+.tf-question.slide-down {
+    transform: translateY(-70%);
+    opacity: 0;
+}
+
+.tf-question-content {
+    animation: fadeInUp var(--duration-normal) var(--ease-out-expo);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Question Elements
+   ============================================ */
+.tf-question-number {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blue-400);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeIn var(--duration-fast) var(--ease-out-expo) 0.1s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.tf-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.tf-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+/* ============================================
+   Input Fields
+   ============================================ */
+.tf-input-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.tf-input {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    outline: none;
+    transition: border-color var(--duration-fast) ease;
+    caret-color: var(--blue-400);
+}
+
+.tf-input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.tf-input:focus {
+    border-color: var(--blue-500);
+}
+
+/* Input line animation */
+.tf-input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue-500), var(--blue-400));
+    transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.tf-input:focus ~ .tf-input-line {
+    width: 100%;
+}
+
+/* Input shake animation for errors */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+.tf-input.error {
+    border-color: #ef4444;
+    animation: shake 0.4s ease;
+}
+
+/* ============================================
+   Choice Buttons
+   ============================================ */
+.tf-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tf-choices-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tf-choices-inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tf-choices-multi {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tf-choice {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-in-out);
+    overflow: hidden;
+}
+
+.tf-choice::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+    opacity: 0;
+    transition: opacity var(--duration-fast) ease;
+}
+
+.tf-choice:hover {
+    border-color: var(--blue-400);
+    transform: translateY(-2px);
+}
+
+.tf-choice input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tf-choice input:checked + .tf-choice-key,
+.tf-choice input:checked ~ .tf-choice-icon,
+.tf-choice input:checked ~ .tf-choice-text {
+    position: relative;
+    z-index: 1;
+}
+
+.tf-choice:has(input:checked) {
+    border-color: var(--blue-500);
+    background: rgba(59, 130, 246, 0.15);
+    box-shadow: 0 4px 20px var(--blue-glow);
+}
+
+.tf-choice:has(input:checked)::before {
+    opacity: 0.1;
+}
+
+.tf-choice-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: all var(--duration-fast) ease;
+}
+
+.tf-choice:has(input:checked) .tf-choice-key {
+    background: var(--blue-500);
+    border-color: var(--blue-500);
+    color: white;
+}
+
+.tf-choice-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.tf-choice-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Icon style choices */
+.tf-choices-icons .tf-choice {
+    flex-direction: column;
+    flex: 1;
+    min-width: 120px;
+    max-width: 150px;
+    padding: 24px 20px;
+    text-align: center;
+    gap: 12px;
+}
+
+.tf-choices-icons .tf-choice-key {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+}
+
+/* Small inline choices */
+.tf-choice-small {
+    padding: 14px 24px;
+    min-width: 80px;
+    justify-content: center;
+}
+
+.tf-choice-small .tf-choice-key {
+    display: none;
+}
+
+/* Tag style (multi-select) */
+.tf-choice-tag {
+    padding: 12px 20px;
+    border-radius: 50px;
+}
+
+.tf-choice-tag .tf-choice-key {
+    display: none;
+}
+
+.tf-choice-tag .tf-choice-text {
+    font-size: 0.95rem;
+}
+
+/* List style choices */
+.tf-choices-list .tf-choice {
+    justify-content: flex-start;
+}
+
+/* ============================================
+   Upload Zone
+   ============================================ */
+.tf-upload-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 30px;
+    margin-top: 20px;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+}
+
+.tf-upload-zone:hover {
+    border-color: var(--blue-400);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.tf-upload-icon {
+    font-size: 1.5rem;
+}
+
+.tf-upload-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   Skip Link
+   ============================================ */
+.tf-skip {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color var(--duration-fast) ease;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.tf-skip:hover {
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.tf-nav {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+}
+
+.tf-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+}
+
+.tf-nav-btn:hover:not(:disabled) {
+    background: var(--bg-card);
+    border-color: var(--blue-500);
+    color: var(--text-primary);
+}
+
+.tf-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.tf-nav-next {
+    width: auto;
+    padding: 0 20px;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.tf-nav-next:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-500));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px var(--blue-glow);
+}
+
+.tf-nav-hint {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-left: 12px;
+}
+
+.tf-nav-hint kbd {
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.8rem;
+}
+
+/* ============================================
+   Success Screen
+   ============================================ */
+.tf-success .tf-question-content {
+    text-align: center;
+}
+
+.tf-success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, var(--green-500), #16a34a);
+    border-radius: 50%;
+    animation: successPop var(--duration-slow) var(--ease-out-expo);
+    box-shadow: 0 10px 40px var(--green-glow);
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.tf-checkmark {
+    font-size: 3rem;
+    color: white;
+    animation: checkDraw 0.5s var(--ease-out-expo) 0.3s forwards;
+    opacity: 0;
+}
+
+@keyframes checkDraw {
+    to { opacity: 1; }
+}
+
+.tf-success .tf-subtitle {
+    max-width: 400px;
+    margin: 0 auto 40px;
+}
+
+/* ============================================
+   Button
+   ============================================ */
+.tf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 36px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all var(--duration-fast) ease;
+}
+
+.tf-btn-primary {
+    background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+    color: white;
+    border: none;
+    box-shadow: 0 4px 20px var(--blue-glow);
+}
+
+.tf-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--blue-glow);
+}
+
+.tf-btn-arrow {
+    font-size: 1.2rem;
+    transition: transform var(--duration-fast) ease;
+}
+
+.tf-btn:hover .tf-btn-arrow {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+    .tf-container {
+        padding: 80px 24px 140px;
+    }
+
+    .tf-logo {
+        left: 20px;
+        top: 16px;
+    }
+
+    .tf-progress-text {
+        right: 20px;
+        top: 16px;
+    }
+
+    .tf-title {
+        font-size: 1.6rem;
+    }
+
+    .tf-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .tf-input {
+        font-size: 1.2rem;
+    }
+
+    .tf-choices-icons {
+        justify-content: center;
+    }
+
+    .tf-choices-icons .tf-choice {
+        min-width: 100px;
+        max-width: 120px;
+        padding: 20px 16px;
+    }
+
+    .tf-choice {
+        padding: 14px 18px;
+    }
+
+    .tf-choice-text {
+        font-size: 1rem;
+    }
+
+    .tf-nav {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        justify-content: space-between;
+    }
+
+    .tf-nav-hint {
+        display: none;
+    }
+
+    .tf-nav-next {
+        flex: 1;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tf-choices-icons .tf-choice {
+        flex: 1 1 calc(50% - 8px);
+        max-width: none;
+    }
+
+    .tf-choice-small {
+        flex: 1;
+        min-width: 60px;
+        padding: 12px 16px;
+    }
+}
+
+/* ============================================
+   Loading State
+   ============================================ */
+.tf-loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--duration-normal) ease;
+}
+
+.tf-loading.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tf-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--blue-500);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Focus Visible (Accessibility)
+   ============================================ */
+.tf-choice:focus-visible,
+.tf-nav-btn:focus-visible,
+.tf-btn:focus-visible {
+    outline: 2px solid var(--blue-400);
+    outline-offset: 2px;
+}
+
+.tf-input:focus-visible {
+    outline: none;
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
